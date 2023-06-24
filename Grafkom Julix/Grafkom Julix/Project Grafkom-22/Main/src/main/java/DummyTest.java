@@ -37,6 +37,12 @@ public class DummyTest {
     Model m5 = null;
     Model m6 = null;
     Model m7 = null;
+    Model w1 = null;
+    Model w2 = null;
+    Model w3 = null;
+    Model w4 = null;
+    Model w5 = null;
+
 
 
     public void run() {
@@ -69,7 +75,11 @@ public class DummyTest {
             m5 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/desert.obj"));
             m6 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/sun.obj"));
             m7 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/lampulorong.obj"));
-
+            w1 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_mata.obj"));
+            w2 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_kepala.obj"));
+            w3 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_badan.obj"));
+            w4 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_tangan3.obj"));
+            w5 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_ban.obj"));
 
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -219,6 +229,88 @@ public class DummyTest {
                 30,
                 m7));
         importX.get(8).translateObject(4.354f,3.95f,4.0f);
+
+        // mata walle
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 0f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w1));
+        importX.get(9).translateObject(2.78f,1.3f,5.65f);
+        importX.get(9).scaleObject(0.8f,0.8f,0.8f);
+        //kepala walle
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(224/255f, 224/255f, 224/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w2));
+        importX.get(10).translateObject(1.45f,-2f,10f);
+        importX.get(10).scaleObject(0.4f,0.4f,0.4f);
+        //badan walle
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(255/255f, 128/255f, 0/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w3));
+        importX.get(11).translateObject(3f,-2f,12.5f);
+        importX.get(11).scaleObject(0.3f,0.3f,0.3f);
+        //tangan walle
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(255/255f, 178/255f, 152/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w4));
+        importX.get(12).translateObject(14f,-2f,12f);
+        importX.get(12).scaleObject(0.3f,0.3f,0.3f);
+        //ban walle
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 0f, 0f, 0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w5));
+        importX.get(13).translateObject(2f,-2.5f,20f);
+        importX.get(13).scaleObject(0.3f,0.3f,0.3f);
+
     }
 
     public void input() {
