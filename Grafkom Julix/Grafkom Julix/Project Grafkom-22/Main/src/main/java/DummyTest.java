@@ -25,9 +25,9 @@ public class DummyTest {
     ArrayList<Object> importX = new ArrayList<Object>();
     List<ShaderProgram.ShaderModuleData> shaderModuleDataList = Arrays.asList(
             new ShaderProgram.ShaderModuleData(
-                    "Project Grafkom-22\\Main\\resources\\shaders\\scene.vert", GL_VERTEX_SHADER),
+                    "Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/resources/shaders/scene.vert", GL_VERTEX_SHADER),
             new ShaderProgram.ShaderModuleData(
-                    "Project Grafkom-22\\Main\\resources\\shaders\\scene.frag", GL_FRAGMENT_SHADER)
+                    "Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
     );
     Model m = null;
     public void run() {
@@ -52,7 +52,7 @@ public class DummyTest {
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
         try{
-            m = ObjLoader.loadModel(new File("Project Grafkom-22/Main/src/blenderAssets/finalBaseMesh.obj"));
+            m = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/FinalBaseMesh.obj"));
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
