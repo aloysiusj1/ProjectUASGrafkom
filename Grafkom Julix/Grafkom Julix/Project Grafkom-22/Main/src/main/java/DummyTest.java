@@ -115,11 +115,11 @@ public class DummyTest {
 
     public void input() {
 
-        if (window.isKeyPressed(GLFW_KEY_LEFT_ALT)) {
+        if (window.isKeyPressed(GLFW_KEY_I)) {
             camera.moveForward(0.12f);
         }
 
-        if (window.isKeyPressed(GLFW_KEY_LEFT_CONTROL)) {
+        if (window.isKeyPressed(GLFW_KEY_K)) {
             camera.moveBackwards(0.12f);
         }
         if (window.isKeyPressed(GLFW_KEY_DOWN)) {
@@ -129,11 +129,11 @@ public class DummyTest {
         if (window.isKeyPressed(GLFW_KEY_UP)) {
             camera.moveUp(0.12f);
         }
-        if (window.isKeyPressed(GLFW_KEY_LEFT)) {
+        if (window.isKeyPressed(GLFW_KEY_J)) {
             camera.moveLeft(0.12f);
         }
 
-        if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
+        if (window.isKeyPressed(GLFW_KEY_L)) {
             camera.moveRight(0.12f);
         }
 
@@ -176,8 +176,6 @@ public class DummyTest {
             camera.addRotation((float) Math.toRadians(-1f), (float) Math.toRadians(0f));
         }
     }
-
-
 
     public void loop() {
 
