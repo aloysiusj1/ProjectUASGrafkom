@@ -1,0 +1,46 @@
+# Blender 3.5.1 MTL File: 'uploads_files_4047545_untitled.blend'
+# www.blender.org
+
+newmtl Material
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 20.000000 20.000000 20.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl mat3
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/felix/Downloads/cc/sdf_mat3_BaseColor.png
+map_Ns C:/Users/felix/Downloads/cc/sdf_mat3_Roughness.png
+map_refl C:/Users/felix/Downloads/cc/sdf_mat3_Metallic.png
+map_Bump -bm 1.000000 C:/Users/felix/Downloads/cc/sdf_mat3_Normal.png
+
+newmtl matt2
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/felix/Downloads/cc/sdf_matt2_BaseColor.png
+map_Ns C:/Users/felix/Downloads/cc/sdf_matt2_Roughness.png
+map_refl C:/Users/felix/Downloads/cc/sdf_matt2_Metallic.png
+map_Bump -bm 1.000000 C:/Users/felix/Downloads/cc/sdf_matt2_Normal.png
+
+newmtl matt2.001
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/felix/Downloads/cc/sdf_matt2_BaseColor.png
+map_Ke C:/Users/felix/Downloads/cc/sdf_matt2_BaseColor.png
