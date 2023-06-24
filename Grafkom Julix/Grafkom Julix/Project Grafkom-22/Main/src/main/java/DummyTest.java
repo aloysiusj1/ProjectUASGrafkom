@@ -30,6 +30,9 @@ public class DummyTest {
                     "Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
     );
     Model m = null;
+    Model m1 = null;
+    Model m2 = null;
+
     public void run() {
         init();
         loop();
@@ -52,7 +55,11 @@ public class DummyTest {
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
         try{
-            m = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/FinalBaseMesh.obj"));
+            m = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/Evekepala.obj"));
+            m1 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/Evemata.obj"));
+            m2 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/badaneva.obj"));
+
+
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
@@ -63,7 +70,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(1.0f, 0.0f, 1.0f, 1.0f),
+                new Vector4f(1.0f, 1.0f, 1.0f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -72,6 +79,37 @@ public class DummyTest {
                 15,
                 30,
                 m));
+        importX.get(0).scaleObject(0.8f,0.8f,0.8f);
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 0f, 1f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                m1));
+        importX.get(1).translateObject(0.65f,-0.65f,0.2f);
+        importX.get(1).scaleObject(0.9f,0.9f,0.9f);
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(1f, 1f, 1f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                m2));
+        importX.get(2).translateObject(0f,-2.3f,0f);
+
 
     }
 
@@ -145,7 +183,7 @@ public class DummyTest {
 
         while (window.isOpen()) {
             window.update();
-            glClearColor(0f,0f,0f, 1.0f);
+            glClearColor(255/255f,229/225f,204/255f, 1.0f);
             GL.createCapabilities();
             glClearDepth(1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

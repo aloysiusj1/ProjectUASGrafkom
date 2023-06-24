@@ -157,7 +157,7 @@ public class Sphere extends Circle3D{
         // Draw vertices
         glLineWidth(1);
         glPointSize(1);
-        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+        glDrawArrays(GL_POLYGON,0, vertices.size());
         for(Object child : getChildObject()){
             child.draw(camera,projection);
         }
