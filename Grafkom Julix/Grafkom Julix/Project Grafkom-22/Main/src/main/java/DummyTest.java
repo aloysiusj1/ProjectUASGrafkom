@@ -34,6 +34,10 @@ public class DummyTest {
     Model m2 = null;
     Model m3 = null;
     Model m4 = null;
+    Model m5 = null;
+    Model m6 = null;
+    Model m7 = null;
+
 
     public void run() {
         init();
@@ -57,11 +61,14 @@ public class DummyTest {
         camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
 
         try{
-            m = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/kepalaeva.obj"));
+            m  = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/kepalaeva.obj"));
             m1 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/mataeva.obj"));
             m2 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/untitled.obj"));
             m3 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/lorong.obj"));
             m4 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/mukahitameve.obj"));
+            m5 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/desert.obj"));
+            m6 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/sun.obj"));
+            m7 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/lampulorong.obj"));
 
 
         }catch(FileNotFoundException e){
@@ -69,7 +76,7 @@ public class DummyTest {
         }catch (IOException e){
             e.printStackTrace();
         }
-
+        //kepala eve
         importX.add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
@@ -85,6 +92,8 @@ public class DummyTest {
                 m));
         importX.get(0).scaleObject(0.8f,0.8f,0.8f);
         importX.get(0).translateObject(2f,2.5f,0f);
+
+        //muka hitam eve
         importX.add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
@@ -100,6 +109,7 @@ public class DummyTest {
                 m4));
         importX.get(1).scaleObject(0.8f,0.8f,0.85f);
         importX.get(1).translateObject(2f,2.5f,0f);
+        //mata eve
         importX.add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
@@ -115,6 +125,8 @@ public class DummyTest {
                 m1));
         importX.get(2).translateObject(2.88f,2.05f,0.02f);
         importX.get(2).scaleObject(0.9f,0.9f,0.9f);
+
+        //badan dan tangan eve
         importX.add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
@@ -129,12 +141,12 @@ public class DummyTest {
                 30,
                 m2));
         importX.get(3).translateObject(2f,0.2f,0f);
-
+        //desert
         importX.add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(255/255f, 255/255f, 255/255f, 1.0f),
+                new Vector4f(194/255f, 178/255f, 128/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(2f, 2f, 0f)),
                 4.0f,
@@ -142,10 +154,71 @@ public class DummyTest {
                 8.0f,
                 15,
                 30,
+                m5));
+        importX.get(4).scaleObject(10f,10f,10f);
+
+        //lorong
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(255/255f, 255/255f, 255/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
                 m3));
+        importX.get(5).translateObject(0f,0f,-1f);
 
+        //matahari
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(253/255f, 184/255f, 19/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                m6));
+        importX.get(6).translateObject(0f,15f,0f);
+        importX.get(6).scaleObject(3f,3f,3f);
 
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0/255f, 255/255f, 255/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                m7));
+        importX.get(7).translateObject(1.852f,3.95f,4.0f);
 
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0/255f, 255/255f, 255/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                m7));
+        importX.get(8).translateObject(4.354f,3.95f,4.0f);
     }
 
     public void input() {
@@ -216,7 +289,7 @@ public class DummyTest {
 
         while (window.isOpen()) {
             window.update();
-            glClearColor(255/255f,229/225f,204/255f, 1.0f);
+            glClearColor(226/255f,236/255f,235/255f, 1.0f);
             GL.createCapabilities();
             glClearDepth(1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
