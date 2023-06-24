@@ -42,6 +42,13 @@ public class DummyTest {
     Model w3 = null;
     Model w4 = null;
     Model w5 = null;
+    Model y0 = null;
+    Model y1 = null;
+    Model y2 = null;
+    Model y3 = null;
+    Model y4 = null;
+    Model y5 = null;
+    Model y6 = null;
 
 
 
@@ -80,6 +87,13 @@ public class DummyTest {
             w3 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_badan.obj"));
             w4 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_tangan3.obj"));
             w5 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/walle_ban.obj"));
+            y0 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/badan.obj"));
+            y1 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/kepala.obj"));
+            y2 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/bahu.obj"));
+            y3 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/lengan.obj"));
+            y4 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/jari.obj"));
+            y5 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/mata.obj"));
+            y6 = ObjLoader.loadModel(new File("Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/src/blenderAssets/propeler.obj"));
 
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -311,6 +325,111 @@ public class DummyTest {
         importX.get(13).translateObject(2f,-2.5f,20f);
         importX.get(13).scaleObject(0.3f,0.3f,0.3f);
 
+        //YOEL BADAN
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(1f, 1f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y0));
+        importX.get(14).translateObject(0f,5.0f,0f);
+        //YOEL KEPALA
+        importX.get(14).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(1f, 0f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y1));
+        importX.get(14).getChildObject().get(0).translateObject(0.27f,6.6f,-0.5f);
+        //YOEL BAHU
+        importX.get(14).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 1f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y2));
+        importX.get(14).getChildObject().get(1).translateObject(-0.13f,5.6f,0f);
+        //YOEL LENGAN
+        importX.get(14).getChildObject().get(1).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 1f, 1f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y3));
+        importX.get(14).getChildObject().get(1).getChildObject().get(0).translateObject(0.045f,4.47f,0.5f);
+        //YOEL JARI
+        importX.get(14).getChildObject().get(1).getChildObject().get(0).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 1f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y4));
+        importX.get(14).getChildObject().get(1).getChildObject().get(0).getChildObject().get(0).translateObject(-0.384f,3.35f,0.75f);
+        //YOEL MATA
+        importX.get(14).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(1f, 0f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y5));
+        importX.get(14).getChildObject().get(2).translateObject(-1.9f,4.1f,-0.12f);
+        //YOEL PROPELER
+        importX.get(14).getChildObject().get(2).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 0f, 1f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                y6));
+        importX.get(14).getChildObject().get(2).getChildObject().get(0).translateObject(-1.66f,4.1f,-0.01f);
     }
 
     public void input() {
@@ -374,6 +493,16 @@ public class DummyTest {
         if(window.isKeyPressed(GLFW_KEY_TAB))
         {
             camera.addRotation((float) Math.toRadians(-1f), (float) Math.toRadians(0f));
+        }
+
+        if(window.isKeyPressed(GLFW_KEY_W)){
+            importX.get(14).translateObject(0.0f, 0f, 0.4f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_S)){
+            importX.get(14).translateObject(0.0f, -0.4f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_D)){
+            importX.get(14).translateObject(0.4f, 0f, 0f);
         }
     }
 
