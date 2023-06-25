@@ -570,6 +570,9 @@ public class DummyTest {
         if(window.isKeyPressed(GLFW_KEY_A)){
             importX.get(7).translateObject(-0.04f, 0f, 0f);
         }
+        if(window.isKeyPressed(GLFW_KEY_P)){
+            importX.get(7).rotateObject((float)Math.toRadians(0.5f), 0f, 0.1f, 0f);
+        }
         if(window.isKeyPressed(GLFW_KEY_T)){
             importX.get(6).translateObject(0.0f, 0f, -0.2f);
         }
@@ -581,6 +584,15 @@ public class DummyTest {
         }
         if(window.isKeyPressed(GLFW_KEY_H)){
             importX.get(6).translateObject(0.2f, 0f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_1)){
+            importX.get(0).translateObject(0.0f, 0f, 0.04f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_2)){
+            importX.get(0).translateObject(0.0f, 0.04f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_3)){
+            importX.get(0).translateObject(0.04f, 0f, 0f);
         }
     }
 
