@@ -608,6 +608,18 @@ public class DummyTest {
             camera.setPosition(2.64f, 2.78f, 28f);
             camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
         }
+        if(window.isKeyPressed(GLFW_KEY_4)){
+            importX.get(0).rotateObject(0.002f, 0f, 1f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_5)){
+            importX.get(0).translateObject(0.0f, 0f, -0.04f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_6)){
+            importX.get(0).translateObject(0.0f, -0.04f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_7)){
+            importX.get(0).translateObject(-0.04f, 0f, 0f);
+        }
     }
 
     public void loop() {
