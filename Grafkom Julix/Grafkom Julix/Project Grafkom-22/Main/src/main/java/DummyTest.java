@@ -250,6 +250,87 @@ public class DummyTest {
                 30,
                 m7));
         importX.get(5).translateObject(4.354f,3.95f,4.0f);
+        //badan walle
+        importX.add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(255/255f, 128/255f, 0/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w3));
+        importX.get(6).translateObject(3f,-2f,12.5f);
+        importX.get(6).scaleObject(0.3f,0.3f,0.3f);
+
+        //kepala walle
+        importX.get(6).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(224/255f, 224/255f, 224/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w2));
+        importX.get(6).getChildObject().get(0).translateObject(1.45f,-2f,10f);
+        importX.get(6).getChildObject().get(0).scaleObject(0.4f,0.4f,0.4f);
+        // mata walle
+        importX.get(6).getChildObject().get(0).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 0f, 0f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w1));
+        importX.get(6).getChildObject().get(0).getChildObject().get(0).translateObject(2.78f,1.3f,5.65f);
+        importX.get(6).getChildObject().get(0).getChildObject().get(0).scaleObject(0.8f,0.8f,0.8f);
+        //tangan walle
+        importX.get(6).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(255/255f, 178/255f, 152/255f, 1.0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w4));
+        importX.get(6).getChildObject().get(1).translateObject(14f,-2f,12f);
+        importX.get(6).getChildObject().get(1).scaleObject(0.3f,0.3f,0.3f);
+        //ban walle
+        importX.get(6).getChildObject().add(new Sphere(
+                shaderModuleDataList,
+                new ArrayList<>(
+                ),
+                new Vector4f(0f, 0f, 0f, 0f),
+                0.0,
+                new ArrayList<>(List.of(0f, 0f, 0f)),
+                4.0f,
+                0.1f,
+                8.0f,
+                15,
+                30,
+                w5));
+        importX.get(6).getChildObject().get(2).translateObject(2f,-2.5f,20f);
+        importX.get(6).getChildObject().get(2).scaleObject(0.3f,0.3f,0.3f);
 
         //YOEL BADAN
         importX.add(new Sphere(
@@ -265,9 +346,9 @@ public class DummyTest {
                 15,
                 30,
                 y0));
-        importX.get(14).translateObject(0f,5.0f,0f);
+        importX.get(7).translateObject(0f,5.0f,0f);
         //YOEL KEPALA
-        importX.get(14).getChildObject().add(new Sphere(
+        importX.get(7).getChildObject().add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
@@ -280,9 +361,9 @@ public class DummyTest {
                 15,
                 30,
                 y1));
-        importX.get(14).getChildObject().get(0).translateObject(0.27f,6.6f,-0.5f);
+        importX.get(7).getChildObject().get(0).translateObject(0.27f,6.6f,-0.5f);
         //YOEL BAHU
-        importX.get(14).getChildObject().add(new Sphere(
+        importX.get(7).getChildObject().add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
@@ -295,9 +376,9 @@ public class DummyTest {
                 15,
                 30,
                 y2));
-        importX.get(14).getChildObject().get(1).translateObject(-0.13f,5.6f,0f);
+        importX.get(7).getChildObject().get(1).translateObject(-0.13f,5.6f,0f);
         //YOEL LENGAN
-        importX.get(14).getChildObject().get(1).getChildObject().add(new Sphere(
+        importX.get(7).getChildObject().get(1).getChildObject().add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
@@ -310,9 +391,9 @@ public class DummyTest {
                 15,
                 30,
                 y3));
-        importX.get(14).getChildObject().get(1).getChildObject().get(0).translateObject(0.045f,4.47f,0.5f);
+        importX.get(7).getChildObject().get(1).getChildObject().get(0).translateObject(0.045f,4.47f,0.5f);
         //YOEL JARI
-        importX.get(14).getChildObject().get(1).getChildObject().get(0).getChildObject().add(new Sphere(
+        importX.get(7).getChildObject().get(1).getChildObject().get(0).getChildObject().add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
@@ -325,9 +406,9 @@ public class DummyTest {
                 15,
                 30,
                 y4));
-        importX.get(14).getChildObject().get(1).getChildObject().get(0).getChildObject().get(0).translateObject(-0.384f,3.35f,0.75f);
+        importX.get(7).getChildObject().get(1).getChildObject().get(0).getChildObject().get(0).translateObject(-0.384f,3.35f,0.75f);
         //YOEL MATA
-        importX.get(14).getChildObject().add(new Sphere(
+        importX.get(7).getChildObject().add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
@@ -340,9 +421,9 @@ public class DummyTest {
                 15,
                 30,
                 y5));
-        importX.get(14).getChildObject().get(2).translateObject(-1.9f,4.1f,-0.12f);
-        //YOEL PROPELER
-        importX.get(14).getChildObject().get(2).getChildObject().add(new Sphere(
+        importX.get(7).getChildObject().get(2).translateObject(-1.9f,4.1f,-0.12f);
+        //YOEL PROPELLER
+        importX.get(7).getChildObject().get(2).getChildObject().add(new Sphere(
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
@@ -355,7 +436,7 @@ public class DummyTest {
                 15,
                 30,
                 y6));
-        importX.get(14).getChildObject().get(2).getChildObject().get(0).translateObject(-1.66f,4.1f,-0.01f);
+        importX.get(7).getChildObject().get(2).getChildObject().get(0).translateObject(-1.66f,4.1f,-0.01f);
         //bangunan
         importX.add(new Sphere(
                 shaderModuleDataList,
@@ -479,6 +560,18 @@ public class DummyTest {
         }
         if(window.isKeyPressed(GLFW_KEY_D)){
             importX.get(14).translateObject(0.4f, 0f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_T)){
+            importX.get(6).translateObject(0.0f, 0f, -0.2f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_F)){
+            importX.get(6).translateObject(-0.2f, 0f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_G)){
+            importX.get(6).translateObject(0f, 0f, 0.2f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_H)){
+            importX.get(6).translateObject(0.2f, 0f, 0f);
         }
     }
 
