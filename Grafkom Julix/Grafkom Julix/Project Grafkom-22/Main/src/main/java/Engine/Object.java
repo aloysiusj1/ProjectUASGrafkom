@@ -18,6 +18,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 public class Object extends ShaderProgram {
     List<Vector3f> vertices;
     List<Vector3f>verticesColor;
+    List<Float> centerPoint;
     int vao, vbo;
     int vboColor;
     Vector4f color;
@@ -158,11 +159,20 @@ public class Object extends ShaderProgram {
         }
     }
 
-    public Vector3f updateCenterPoint(){
-        Vector3f centerTemp = new Vector3f();
-        model.transformPosition(0f,0f,0f, centerTemp);
-        return centerTemp;
+//    public Vector3f updateCenterPoint(){
+//        Vector3f centerTemp = new Vector3f();
+//        model.transformPosition(0f,0f,0f, centerTemp);
+//        return centerTemp;
+//    }
+
+    public void updateCenterPoint(){
+        Vector3f destTemp = new Vector3f();
+        model.transformPosition(0.0f,0.0f,0.0f,destTemp);
+        centerPoint.set(0,destTemp.x);
+        centerPoint.set(1,destTemp.y);
+        centerPoint.set(2,destTemp.z);
     }
+
     public Vector3f updateCenterPoint(boolean child){
         Vector3f centerTemp = new Vector3f();
         model.transformPosition(0f,0f,0f, centerTemp);
@@ -210,6 +220,10 @@ public class Object extends ShaderProgram {
         return model;
     }
 
+    public List<Float> getCenterPoint() {
+        updateCenterPoint();
+        return centerPoint;
+    }
 
 }
 
