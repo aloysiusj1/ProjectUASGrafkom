@@ -337,7 +337,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(1f, 1f, 0f, 1.0f),
+                new Vector4f(130/255f, 10/255f, 15/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -352,7 +352,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(1f, 0f, 0f, 1.0f),
+                new Vector4f(1f, 1f, 1f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -367,7 +367,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(0f, 1f, 0f, 1.0f),
+                new Vector4f(120/255f, 95/255f, 10/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -382,7 +382,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(0f, 1f, 1f, 1.0f),
+                new Vector4f(130/255f, 10/255f, 15/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -397,7 +397,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(0f, 1f, 0f, 1.0f),
+                new Vector4f(120/255f, 95/255f, 10/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -412,7 +412,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(1f, 0f, 0f, 1.0f),
+                new Vector4f(120/255f, 95/255f, 10/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -427,7 +427,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(0f, 0f, 1f, 1.0f),
+                new Vector4f(200/255f, 195/255f, 180/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(0f, 0f, 0f)),
                 4.0f,
@@ -553,13 +553,22 @@ public class DummyTest {
         }
 
         if(window.isKeyPressed(GLFW_KEY_W)){
-            importX.get(14).translateObject(0.0f, 0f, 0.4f);
+            importX.get(7).translateObject(0.0f, 0f, 0.04f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_Q)){
+            importX.get(7).translateObject(0.0f, 0f, -0.04f);
         }
         if(window.isKeyPressed(GLFW_KEY_S)){
-            importX.get(14).translateObject(0.0f, -0.4f, 0f);
+            importX.get(7).translateObject(0.0f, -0.04f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_E)){
+            importX.get(7).translateObject(0.0f, 0.04f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_D)){
-            importX.get(14).translateObject(0.4f, 0f, 0f);
+            importX.get(7).translateObject(0.04f, 0f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_A)){
+            importX.get(7).translateObject(-0.04f, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_T)){
             importX.get(6).translateObject(0.0f, 0f, -0.2f);
