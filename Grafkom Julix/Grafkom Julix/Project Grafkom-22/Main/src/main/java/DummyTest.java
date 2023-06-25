@@ -574,6 +574,9 @@ public class DummyTest {
         if(window.isKeyPressed(GLFW_KEY_A)){
             importX.get(7).translateObject(-0.04f, 0f, 0f);
         }
+        if(window.isKeyPressed(GLFW_KEY_LEFT_ALT)){
+            importX.get(7).rotateObject((float)Math.toRadians(1f), 0f, 0.1f, 0f);
+        }
         if(window.isKeyPressed(GLFW_KEY_P)){
             camera.setPosition(2.6f, 2f, 6f);
             camera.setRotation(0, (float)Math.toRadians(180));
