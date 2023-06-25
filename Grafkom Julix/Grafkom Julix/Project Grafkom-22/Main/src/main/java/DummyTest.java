@@ -590,10 +590,18 @@ public class DummyTest {
         }
         if(window.isKeyPressed(GLFW_KEY_G)){
             importX.get(6).translateObject(0f, 0f, 0.2f);
-            camera.moveForward(0.2f);
         }
         if(window.isKeyPressed(GLFW_KEY_H)){
             importX.get(6).translateObject(0.2f, 0f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_R)){
+            importX.get(6).rotateObject((float)Math.toRadians(1f),0f, 0.3f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_Y)){
+            importX.get(6).translateObject(0f, 0.2f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_U)){
+            importX.get(6).translateObject(0f, -0.2f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_1)){
             importX.get(0).translateObject(0.0f, 0f, 0.04f);
@@ -619,6 +627,9 @@ public class DummyTest {
         }
         if(window.isKeyPressed(GLFW_KEY_7)){
             importX.get(0).translateObject(-0.04f, 0f, 0f);
+        }
+        if(window.isKeyPressed(GLFW_KEY_7)){
+            importX.get(6).rotateObject(0.01f, 0f, 0f, 1f);
         }
     }
 
