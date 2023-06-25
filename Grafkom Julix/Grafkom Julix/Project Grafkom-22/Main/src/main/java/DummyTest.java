@@ -789,13 +789,13 @@ public class DummyTest {
             tpp = false;
             fpsMode();
         }
-        // FPS Camera
+        /* FPS Camera
         if (window.isKeyPressed(GLFW_KEY_LEFT) && fpp){
-            importX.get(0).translateObject(-1f, 0.0f, 0.0f);
+            importX.get(0).translateObject(-0.1f, 0.0f, 0.0f);
             fpsMode();
         }
         if (window.isKeyPressed(GLFW_KEY_RIGHT) && fpp){
-            importX.get(0).translateObject(1f, 0.0f, 0.0f);
+            importX.get(0).translateObject(0.1f, 0.0f, 0.0f);
             fpsMode();
         }
         if (window.isKeyPressed(GLFW_KEY_RIGHT_SHIFT) && fpp){
@@ -805,7 +805,7 @@ public class DummyTest {
         if (window.isKeyPressed(GLFW_KEY_RIGHT_CONTROL) && fpp){
             importX.get(0).translateObject(0.0f, 0.0f, 1f);
             fpsMode();
-        }
+        }*/
         // TPS triggering
         if (window.isKeyPressed(GLFW_KEY_RIGHT_BRACKET) && !tpp){
             Vector3f pos = camera.getPosition();
@@ -825,6 +825,9 @@ public class DummyTest {
             if(tpp){
                 tpsMode();
             }
+            if(fpp){
+                fpsMode();
+            }
         }
         if (window.isKeyPressed(GLFW_KEY_RIGHT)){
             importX.get(0).translateObject(0.1f, 0.0f, 0.0f);
@@ -834,6 +837,7 @@ public class DummyTest {
             if(fpp){
                 fpsMode();
             }
+
         }
         if (window.isKeyPressed(GLFW_KEY_UP)){
             importX.get(0).translateObject(0f, 0.0f, -0.1f);
