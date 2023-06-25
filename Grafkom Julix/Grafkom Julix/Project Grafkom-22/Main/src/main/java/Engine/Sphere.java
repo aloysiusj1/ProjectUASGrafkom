@@ -110,28 +110,23 @@ public class Sphere extends Circle3D{
 //        uniformsMap.setUniform("lightColor", new Vector3f(1.0f,0.5f,.8f));
 //        uniformsMap.setUniform("lightPos", new Vector3f(0.0f,3.0f,2.4f));
         uniformsMap.setUniform("dirLight.direction", new Vector3f(-0.2f,-1.0f, -0.3f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f,0.05f, 0.05f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f,0.1f, 0.1f));
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f, 0.4f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f, 0.5f));
 
 //        posisi PointLight
         Vector3f[] _pointLightPositions ={
-//                new Vector3f(0.7f,0.2f,2.0f),
-//                new Vector3f(2.3f,-3.3f,-4.0f),
-//                new Vector3f(4.0f,2.0f,-12.0f),
-//                new Vector3f(0.0f,0.0f,-3.0f),
-//                new Vector3f(20f,0f,5.0f),
-                new Vector3f(4f,0.2f,5.0f),
-                new Vector3f(4f,73f,5.0f)
+                new Vector3f(10f, 50f, 3f),
+                new Vector3f(-20f, 30f, 2f)
         };
         for(int i = 0; i < _pointLightPositions.length;i++){
             uniformsMap.setUniform("pointLights["+ i +"].position", _pointLightPositions[i]);
 
-            uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(1.05f,1.05f,1.05f));
+            uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(10f,10f,5f));
 
             uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
 
-            uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(5f,5f,5f));
+            uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(500f,500f,500f));
 
             uniformsMap.setUniform("pointLights["+ i +"].constant", (1f));
 

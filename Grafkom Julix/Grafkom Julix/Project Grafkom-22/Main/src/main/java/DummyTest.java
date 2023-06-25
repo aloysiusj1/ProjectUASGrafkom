@@ -20,6 +20,8 @@ import static org.lwjgl.opengl.GL30.*;
 public class DummyTest {
     private Window window = new Window(800, 800, "Dummy Main");
     Camera camera = new Camera();
+    Camera camera1 = new Camera();
+
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
     ArrayList<Object> importX = new ArrayList<Object>();
@@ -177,7 +179,7 @@ public class DummyTest {
                 shaderModuleDataList,
                 new ArrayList<>(
                 ),
-                new Vector4f(194/255f, 178/255f, 128/255f, 1.0f),
+                new Vector4f(248/255f, 177/255f, 10/255f, 1.0f),
                 0.0,
                 new ArrayList<>(List.of(2f, 2f, 0f)),
                 4.0f,
@@ -487,6 +489,8 @@ public class DummyTest {
         importX.get(10).scaleObject(0.3f,0.3f,0.3f);
 
 
+
+
     }
 
     public void input() {
@@ -571,7 +575,12 @@ public class DummyTest {
             importX.get(7).translateObject(-0.04f, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_P)){
-            importX.get(7).rotateObject((float)Math.toRadians(0.5f), 0f, 0.1f, 0f);
+            camera.setPosition(2.6f, 2f, 6f);
+            camera.setRotation(0, (float)Math.toRadians(180));
+        }
+        if(window.isKeyPressed(GLFW_KEY_O)){
+            camera.setPosition(2.6f, 2f, -2f);
+            camera.setRotation(0, (float)Math.toRadians(180));
         }
         if(window.isKeyPressed(GLFW_KEY_T)){
             importX.get(6).translateObject(0.0f, 0f, -0.2f);
@@ -581,6 +590,7 @@ public class DummyTest {
         }
         if(window.isKeyPressed(GLFW_KEY_G)){
             importX.get(6).translateObject(0f, 0f, 0.2f);
+            camera.moveForward(0.2f);
         }
         if(window.isKeyPressed(GLFW_KEY_H)){
             importX.get(6).translateObject(0.2f, 0f, 0f);
@@ -594,13 +604,17 @@ public class DummyTest {
         if(window.isKeyPressed(GLFW_KEY_3)){
             importX.get(0).translateObject(0.04f, 0f, 0f);
         }
+        if(window.isKeyPressed(GLFW_KEY_0)){
+            camera.setPosition(2.64f, 2.78f, 28f);
+            camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
+        }
     }
 
     public void loop() {
 
         while (window.isOpen()) {
             window.update();
-            glClearColor(226/255f,236/255f,235/255f, 1.0f);
+            glClearColor(255/255f,255/255f,242/255f, 1.0f);
             GL.createCapabilities();
             glClearDepth(1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -610,11 +624,17 @@ public class DummyTest {
             for (Object obj3D : importX) {
                 obj3D.draw(camera, projection);
             }
+//            for (Object obj3D : importX) {
+//                obj3D.draw(camera1, projection);
+//            }
 
             System.out.println("X"+camera.getPosition().get(0));
             System.out.println("Y"+camera.getPosition().get(1));
             System.out.println("Z"+camera.getPosition().get(2));
 
+            System.out.println("X"+camera1.getPosition().get(0));
+            System.out.println("Y"+camera1.getPosition().get(1));
+            System.out.println("Z"+camera1.getPosition().get(2));
 
             //Restore State
             glDisableVertexAttribArray(0);
