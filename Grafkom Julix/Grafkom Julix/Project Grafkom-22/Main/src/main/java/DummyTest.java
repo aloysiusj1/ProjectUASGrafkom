@@ -188,7 +188,7 @@ public class DummyTest {
                 15,
                 30,
                 m5));
-        importX.get(1).scaleObject(7f,7f,7f);
+        importX.get(1).scaleObject(12f,12f,12f);
 
         //lorong
         importX.add(new Sphere(
@@ -495,6 +495,8 @@ public class DummyTest {
 
     public void input() {
 
+        float gerak = 0.01f;
+
         if (window.isKeyPressed(GLFW_KEY_I)) {
             camera.moveForward(0.12f);
         }
@@ -528,7 +530,7 @@ public class DummyTest {
         }
 
         if(window.isKeyPressed(GLFW_KEY_Z)){
-            camera.rotateObjectCamera(0f,(float)(Math.toRadians(1)));
+            camera.rotateObjectCamera(0f,(float)(Math.toRadians(0.5)));
         }
         if(window.isKeyPressed(GLFW_KEY_X)){
             camera.rotateObjectCamera(0f,(float)(Math.toRadians(-1)));
@@ -557,22 +559,22 @@ public class DummyTest {
         }
 
         if(window.isKeyPressed(GLFW_KEY_W)){
-            importX.get(7).translateObject(0.0f, 0f, 0.04f);
+            importX.get(7).translateObject(0.0f, 0f, gerak);
         }
         if(window.isKeyPressed(GLFW_KEY_Q)){
-            importX.get(7).translateObject(0.0f, 0f, -0.04f);
+            importX.get(7).translateObject(0.0f, 0f, -gerak);
         }
         if(window.isKeyPressed(GLFW_KEY_S)){
-            importX.get(7).translateObject(0.0f, -0.04f, 0f);
+            importX.get(7).translateObject(0.0f, -gerak, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_E)){
-            importX.get(7).translateObject(0.0f, 0.04f, 0f);
+            importX.get(7).translateObject(0.0f, gerak, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_D)){
-            importX.get(7).translateObject(0.04f, 0f, 0f);
+            importX.get(7).translateObject(gerak, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_A)){
-            importX.get(7).translateObject(-0.04f, 0f, 0f);
+            importX.get(7).translateObject(-gerak, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_LEFT_ALT)){
             importX.get(7).rotateObject((float)Math.toRadians(1f), 0f, 0.1f, 0f);
@@ -586,34 +588,34 @@ public class DummyTest {
             camera.setRotation(0, (float)Math.toRadians(180));
         }
         if(window.isKeyPressed(GLFW_KEY_T)){
-            importX.get(6).translateObject(0.0f, 0f, -0.2f);
+            importX.get(6).translateObject(0.0f, 0f, gerak);
         }
         if(window.isKeyPressed(GLFW_KEY_F)){
-            importX.get(6).translateObject(-0.2f, 0f, 0f);
+            importX.get(6).translateObject(-gerak, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_G)){
-            importX.get(6).translateObject(0f, 0f, 0.2f);
+            importX.get(6).translateObject(0f, 0f, -gerak);
         }
         if(window.isKeyPressed(GLFW_KEY_H)){
-            importX.get(6).translateObject(0.2f, 0f, 0f);
+            importX.get(6).translateObject(gerak, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_R)){
             importX.get(6).rotateObject((float)Math.toRadians(1f),0f, 0.3f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_Y)){
-            importX.get(6).translateObject(0f, 0.2f, 0f);
+            importX.get(6).translateObject(0f, gerak, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_U)){
-            importX.get(6).translateObject(0f, -0.2f, 0f);
+            importX.get(6).translateObject(0f, -gerak, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_1)){
-            importX.get(0).translateObject(0.0f, 0f, 0.04f);
+            importX.get(0).translateObject(0.0f, 0f, gerak);
         }
         if(window.isKeyPressed(GLFW_KEY_2)){
-            importX.get(0).translateObject(0.0f, 0.04f, 0f);
+            importX.get(0).translateObject(0.0f, gerak, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_3)){
-            importX.get(0).translateObject(0.04f, 0f, 0f);
+            importX.get(0).translateObject(gerak, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_0)){
             camera.setPosition(2.64f, 2.78f, 28f);
@@ -623,16 +625,13 @@ public class DummyTest {
             importX.get(0).rotateObject(0.002f, 0f, 1f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_5)){
-            importX.get(0).translateObject(0.0f, 0f, -0.04f);
+            importX.get(0).translateObject(0.0f, 0f, -gerak);
         }
         if(window.isKeyPressed(GLFW_KEY_6)){
-            importX.get(0).translateObject(0.0f, -0.04f, 0f);
+            importX.get(0).translateObject(0.0f, -gerak, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_7)){
-            importX.get(0).translateObject(-0.04f, 0f, 0f);
-        }
-        if(window.isKeyPressed(GLFW_KEY_7)){
-            importX.get(6).rotateObject(0.01f, 0f, 0f, 1f);
+            importX.get(0).translateObject(-gerak, 0f, 0f);
         }
     }
 
