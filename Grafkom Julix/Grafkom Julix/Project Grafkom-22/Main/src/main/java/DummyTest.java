@@ -20,7 +20,8 @@ import static org.lwjgl.opengl.GL30.*;
 public class DummyTest {
     private Window window = new Window(800, 800, "Dummy Main");
     Camera camera = new Camera();
-    Camera camera1 = new Camera();
+    float rotation = (float)Math.toRadians(1f);
+    boolean tpp = false, fpp = false;
 
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
@@ -580,9 +581,89 @@ public class DummyTest {
 
     }
 
-    public void input() {
+    public void tpsMode(){
+        Vector3f pos = importX.get(0).getModel().transformPosition(new Vector3f());
 
-        float gerak = 0.01f;
+        ArrayList<Vector3f> tpsPos = new ArrayList<>(List.of());
+
+        for(double i=0;i<360;i+=360/360){
+            float x = (float)(pos.x + 110f*Math.sin(Math.toRadians(i)));
+            float z = (float)(pos.z + 110f*Math.cos(Math.toRadians(i)));
+            tpsPos.add(new Vector3f(x, pos.y+13f, z));
+        }
+        camera.setPosition(tpsPos.get((int)rotation).x,tpsPos.get((int)rotation).y, tpsPos.get((int)rotation).z);
+    }
+    public void tpsMode1(){
+        Vector3f pos = importX.get(7).getModel().transformPosition(new Vector3f());
+
+        ArrayList<Vector3f> tpsPos = new ArrayList<>(List.of());
+
+        for(double i=0;i<360;i+=360/360){
+            float x = (float)(pos.x + 110f*Math.sin(Math.toRadians(i)));
+            float z = (float)(pos.z + 110f*Math.cos(Math.toRadians(i)));
+            tpsPos.add(new Vector3f(x, pos.y+13f, z));
+        }
+        camera.setPosition(tpsPos.get((int)rotation).x,tpsPos.get((int)rotation).y, tpsPos.get((int)rotation).z);
+    }
+    public void tpsMode2(){
+        Vector3f pos = importX.get(6).getModel().transformPosition(new Vector3f());
+
+        ArrayList<Vector3f> tpsPos = new ArrayList<>(List.of());
+
+        for(double i=0;i<360;i+=360/360){
+            float x = (float)(pos.x + 110f*Math.sin(Math.toRadians(i)));
+            float z = (float)(pos.z + 110f*Math.cos(Math.toRadians(i)));
+            tpsPos.add(new Vector3f(x, pos.y+13f, z));
+        }
+        camera.setPosition(-tpsPos.get((int)rotation).x,-tpsPos.get((int)rotation).y,-tpsPos.get((int)rotation).z);
+        camera.setRotation(0, (float)Math.toRadians(180f));
+        camera.setPosition(tpsPos.get((int)rotation).x,tpsPos.get((int)rotation).y,tpsPos.get((int)rotation).z);
+    }
+
+    public void fpsMode() {
+        Vector3f pos = importX.get(0).getModel().transformPosition(new Vector3f());
+
+        ArrayList<Vector3f> fpsPos = new ArrayList<>(List.of());
+
+        for (double i = 0; i < 360; i += 360 / 360) {
+            float x = (float) (pos.x + 1f * Math.sin(Math.toRadians(i)));
+            float z = (float) (pos.z + 1f * Math.cos(Math.toRadians(i)));
+            fpsPos.add(new Vector3f(x, pos.y + 4f, z));
+        }
+        camera.setPosition(-fpsPos.get((int)rotation).x,-fpsPos.get((int)rotation).y,-fpsPos.get((int)rotation).z);
+        camera.setRotation(0, (float)Math.toRadians(180f));
+        camera.setPosition(fpsPos.get((int)rotation).x,fpsPos.get((int)rotation).y, fpsPos.get((int)rotation).z);
+    }
+    public void fpsMode1() {
+        Vector3f pos = importX.get(7).getModel().transformPosition(new Vector3f());
+
+        ArrayList<Vector3f> fpsPos = new ArrayList<>(List.of());
+
+        for (double i = 0; i < 360; i += 360 / 360) {
+            float x = (float) (pos.x + 1f * Math.sin(Math.toRadians(i)));
+            float z = (float) (pos.z + 1f * Math.cos(Math.toRadians(i)));
+            fpsPos.add(new Vector3f(x, pos.y + 4f, z));
+        }
+        camera.setPosition(-fpsPos.get((int)rotation).x,-fpsPos.get((int)rotation).y,-fpsPos.get((int)rotation).z);
+        camera.setRotation(0, (float)Math.toRadians(180f));
+        camera.setPosition(fpsPos.get((int)rotation).x,fpsPos.get((int)rotation).y, fpsPos.get((int)rotation).z);
+    }
+    public void fpsMode2() {
+        Vector3f pos = importX.get(6).getModel().transformPosition(new Vector3f());
+
+        ArrayList<Vector3f> fpsPos = new ArrayList<>(List.of());
+
+        for (double i = 0; i < 360; i += 360 / 360) {
+            float x = (float) (pos.x + 1f * Math.sin(Math.toRadians(i)));
+            float z = (float) (pos.z + 1f * Math.cos(Math.toRadians(i)));
+            fpsPos.add(new Vector3f(x, pos.y + 4f, z));
+        }
+        camera.setPosition(-fpsPos.get((int)rotation).x,-fpsPos.get((int)rotation).y,-fpsPos.get((int)rotation).z);
+        camera.setRotation(0, (float)Math.toRadians(180f));
+        camera.setPosition(fpsPos.get((int)rotation).x,fpsPos.get((int)rotation).y, fpsPos.get((int)rotation).z);
+    }
+
+    public void input() {
 
         if (window.isKeyPressed(GLFW_KEY_I)) {
             camera.moveForward(0.12f);
@@ -591,11 +672,11 @@ public class DummyTest {
         if (window.isKeyPressed(GLFW_KEY_K)) {
             camera.moveBackwards(0.12f);
         }
-        if (window.isKeyPressed(GLFW_KEY_DOWN)) {
+        if (window.isKeyPressed(GLFW_KEY_LEFT_ALT)) {
             camera.moveDown(0.12f);
         }
 
-        if (window.isKeyPressed(GLFW_KEY_UP)) {
+        if (window.isKeyPressed(GLFW_KEY_LEFT_SHIFT)) {
             camera.moveUp(0.12f);
         }
         if (window.isKeyPressed(GLFW_KEY_J)) {
@@ -617,7 +698,7 @@ public class DummyTest {
         }
 
         if(window.isKeyPressed(GLFW_KEY_Z)){
-            camera.rotateObjectCamera(0f,(float)(Math.toRadians(0.5)));
+            camera.rotateObjectCamera(0f,(float)(Math.toRadians(1)));
         }
         if(window.isKeyPressed(GLFW_KEY_X)){
             camera.rotateObjectCamera(0f,(float)(Math.toRadians(-1)));
@@ -644,24 +725,11 @@ public class DummyTest {
         {
             camera.addRotation((float) Math.toRadians(-1f), (float) Math.toRadians(0f));
         }
-
-        if(window.isKeyPressed(GLFW_KEY_W)){
-            importX.get(7).translateObject(0.0f, 0f, gerak);
-        }
         if(window.isKeyPressed(GLFW_KEY_Q)){
-            importX.get(7).translateObject(0.0f, 0f, -gerak);
-        }
-        if(window.isKeyPressed(GLFW_KEY_S)){
-            importX.get(7).translateObject(0.0f, -gerak, 0f);
+            importX.get(7).translateObject(0.0f, -0.04f, 0.0f);
         }
         if(window.isKeyPressed(GLFW_KEY_E)){
-            importX.get(7).translateObject(0.0f, gerak, 0f);
-        }
-        if(window.isKeyPressed(GLFW_KEY_D)){
-            importX.get(7).translateObject(gerak, 0f, 0f);
-        }
-        if(window.isKeyPressed(GLFW_KEY_A)){
-            importX.get(7).translateObject(-gerak, 0f, 0f);
+            importX.get(7).translateObject(0.0f, 0.04f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_LEFT_ALT)){
             importX.get(7).rotateObject((float)Math.toRadians(1f), 0f, 0.1f, 0f);
@@ -674,52 +742,192 @@ public class DummyTest {
             camera.setPosition(2.6f, 2f, -2f);
             camera.setRotation(0, (float)Math.toRadians(180));
         }
-        if(window.isKeyPressed(GLFW_KEY_T)){
-            importX.get(6).translateObject(0.0f, 0f, gerak);
-        }
-        if(window.isKeyPressed(GLFW_KEY_F)){
-            importX.get(6).translateObject(-gerak, 0f, 0f);
-        }
-        if(window.isKeyPressed(GLFW_KEY_G)){
-            importX.get(6).translateObject(0f, 0f, -gerak);
-        }
-        if(window.isKeyPressed(GLFW_KEY_H)){
-            importX.get(6).translateObject(gerak, 0f, 0f);
-        }
         if(window.isKeyPressed(GLFW_KEY_R)){
             importX.get(6).rotateObject((float)Math.toRadians(1f),0f, 0.3f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_Y)){
-            importX.get(6).translateObject(0f, gerak, 0f);
+            importX.get(6).translateObject(0f, 0.2f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_U)){
-            importX.get(6).translateObject(0f, -gerak, 0f);
+            importX.get(6).translateObject(0f, -0.2f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_1)){
-            importX.get(0).translateObject(0.0f, 0f, gerak);
+            importX.get(0).translateObject(0.0f, 0f, 0.04f);
         }
         if(window.isKeyPressed(GLFW_KEY_2)){
-            importX.get(0).translateObject(0.0f, gerak, 0f);
+            importX.get(0).translateObject(0.0f, 0.04f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_3)){
-            importX.get(0).translateObject(gerak, 0f, 0f);
+            importX.get(0).translateObject(0.04f, 0f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_0)){
             camera.setPosition(2.64f, 2.78f, 28f);
             camera.setRotation((float) Math.toRadians(0.0f), (float) Math.toRadians(0.0f));
+            tpp = false;
         }
         if(window.isKeyPressed(GLFW_KEY_4)){
             importX.get(0).rotateObject(0.002f, 0f, 1f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_5)){
-            importX.get(0).translateObject(0.0f, 0f, -gerak);
+            importX.get(0).translateObject(0.0f, 0f, -0.04f);
         }
         if(window.isKeyPressed(GLFW_KEY_6)){
-            importX.get(0).translateObject(0.0f, -gerak, 0f);
+            importX.get(0).translateObject(0.0f, -0.04f, 0f);
         }
         if(window.isKeyPressed(GLFW_KEY_7)){
-            importX.get(0).translateObject(-gerak, 0f, 0f);
+            importX.get(0).translateObject(-0.04f, 0f, 0f);
         }
+        // FPS triggering
+        if (window.isKeyPressed(GLFW_KEY_BACKSLASH) && !fpp) {
+            Vector3f pos = camera.getPosition();
+            if (!fpp) {
+                camera.setPosition(pos.x, pos.y, pos.z);
+                camera.setRotation(0f, (float) Math.toRadians(0));
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+            }
+            fpp = true;
+            tpp = false;
+            fpsMode();
+        }
+        // FPS Camera
+        if (window.isKeyPressed(GLFW_KEY_LEFT) && fpp){
+            importX.get(0).translateObject(-1f, 0.0f, 0.0f);
+            fpsMode();
+        }
+        if (window.isKeyPressed(GLFW_KEY_RIGHT) && fpp){
+            importX.get(0).translateObject(1f, 0.0f, 0.0f);
+            fpsMode();
+        }
+        if (window.isKeyPressed(GLFW_KEY_RIGHT_SHIFT) && fpp){
+            importX.get(0).translateObject(0.0f, 0.0f, -1f);
+            fpsMode();
+        }
+        if (window.isKeyPressed(GLFW_KEY_RIGHT_CONTROL) && fpp){
+            importX.get(0).translateObject(0.0f, 0.0f, 1f);
+            fpsMode();
+        }
+        // TPS triggering
+        if (window.isKeyPressed(GLFW_KEY_RIGHT_BRACKET) && !tpp){
+            Vector3f pos = camera.getPosition();
+            if (!tpp) {
+                camera.setPosition(-pos.x, -pos.y, -pos.z);
+                camera.setRotation(0f, (float) Math.toRadians(0));
+                camera.setPosition(pos.x, pos.y, pos.z);
+            }
+            fpp = false;
+            tpp = true;
+            tpsMode();
+        }
+
+        // TPS Camera eva
+        if (window.isKeyPressed(GLFW_KEY_LEFT)){
+            importX.get(0).translateObject(-0.1f, 0.0f, 0.0f);
+            if(tpp){
+                tpsMode();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_RIGHT)){
+            importX.get(0).translateObject(0.1f, 0.0f, 0.0f);
+            if(tpp){
+                tpsMode();
+            }
+            if(fpp){
+                fpsMode();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_UP)){
+            importX.get(0).translateObject(0f, 0.0f, -0.1f);
+            if(tpp){
+                tpsMode();
+            }
+            if(fpp){
+                fpsMode();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_DOWN)){
+            importX.get(0).translateObject(0f, 0.0f, 0.1f);
+            if(tpp){
+                tpsMode();
+            }
+            if(fpp){
+                fpsMode();
+            }
+        }
+        // TPS Camera robotYoel
+        if (window.isKeyPressed(GLFW_KEY_A)){
+            importX.get(7).translateObject(-0.1f, 0.0f, 0.0f);
+            if(tpp){
+                tpsMode1();
+            }
+            if(fpp){
+                fpsMode1();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_D)){
+            importX.get(7).translateObject(0.1f, 0.0f, 0.0f);
+            if(tpp){
+                tpsMode1();
+            }
+            if(fpp){
+                fpsMode1();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_W)){
+            importX.get(7).translateObject(0f, 0.0f, -0.1f);
+            if(tpp){
+                tpsMode1();
+            }
+            if(fpp){
+                fpsMode1();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_S)){
+            importX.get(7).translateObject(0f, 0.0f, 0.1f);
+            if(tpp){
+                tpsMode1();
+            }
+            if(fpp){
+                fpsMode1();
+            }
+        }
+        // TPS Camera robotYoel
+        if (window.isKeyPressed(GLFW_KEY_F)){
+            importX.get(6).translateObject(-0.1f, 0.0f, 0.0f);
+            if(tpp){
+                tpsMode2();
+            }
+            if(fpp){
+                fpsMode2();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_H)){
+            importX.get(6).translateObject(0.1f, 0.0f, 0.0f);
+            if(tpp){
+                tpsMode2();
+            }
+            if(fpp){
+                fpsMode2();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_T)){
+            importX.get(6).translateObject(0f, 0.0f, -0.1f);
+            if(tpp){
+                tpsMode2();
+            }
+            if(fpp){
+                fpsMode2();
+            }
+        }
+        if (window.isKeyPressed(GLFW_KEY_G)){
+            importX.get(6).translateObject(0f, 0.0f, 0.1f);
+            if(tpp){
+                tpsMode2();
+            }
+            if(fpp){
+                fpsMode2();
+            }
+        }
+
     }
 
     public void loop() {
@@ -736,17 +944,11 @@ public class DummyTest {
             for (Object obj3D : importX) {
                 obj3D.draw(camera, projection);
             }
-//            for (Object obj3D : importX) {
-//                obj3D.draw(camera1, projection);
-//            }
 
             System.out.println("X"+camera.getPosition().get(0));
             System.out.println("Y"+camera.getPosition().get(1));
             System.out.println("Z"+camera.getPosition().get(2));
 
-            System.out.println("X"+camera1.getPosition().get(0));
-            System.out.println("Y"+camera1.getPosition().get(1));
-            System.out.println("Z"+camera1.getPosition().get(2));
 
             //Restore State
             glDisableVertexAttribArray(0);
