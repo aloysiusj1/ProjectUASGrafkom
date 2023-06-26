@@ -25,7 +25,7 @@ public class DummyTest {
 
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
-    ArrayList<Object> importX = new ArrayList<Object>();
+    ArrayList<Circle3D> importX = new ArrayList<Circle3D>();
     List<ShaderProgram.ShaderModuleData> shaderModuleDataList = Arrays.asList(
             new ShaderProgram.ShaderModuleData(
                     "Grafkom Julix/Grafkom Julix/Project Grafkom-22/Main/resources/shaders/scene.vert", GL_VERTEX_SHADER),
@@ -268,7 +268,7 @@ public class DummyTest {
                 ),
                 new Vector4f(255/255f, 128/255f, 0/255f, 1.0f),
                 0.0,
-                new ArrayList<>(List.of(0f, 0f, 0f)),
+                new ArrayList<>(List.of(3f,-2f,12.5f)),
                 4.0f,
                 0.1f,
                 8.0f,
@@ -738,8 +738,11 @@ public class DummyTest {
             camera.setPosition(2.6f, 2f, 6f);
             camera.setRotation(0, (float)Math.toRadians(180));
         }
+        float x = importX.get(6).getCenterPoint().get(0);
+        float y = importX.get(6).getCenterPoint().get(1);
+        float z = importX.get(6).getCenterPoint().get(2);
         if(window.isKeyPressed(GLFW_KEY_O)){
-            camera.setPosition(2.6f, 2f, -2f);
+            camera.setPosition(x, y, z);
             camera.setRotation(0, (float)Math.toRadians(180));
         }
         if(window.isKeyPressed(GLFW_KEY_R)){

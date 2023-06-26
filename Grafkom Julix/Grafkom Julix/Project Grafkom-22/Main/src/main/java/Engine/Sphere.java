@@ -116,9 +116,11 @@ public class Sphere extends Circle3D{
 
 //        posisi PointLight
         Vector3f[] _pointLightPositions ={
+                new Vector3f(37f, 20f, -25f),
                 new Vector3f(10f, 50f, 3f),
                 new Vector3f(-20f, 30f, 2f),
                 new Vector3f(-30f, 50f, -2f),
+                new Vector3f(-27f, 25f, -30f),
                 new Vector3f(20f, 0.5f, -10f),
                 new Vector3f(20f, 0.5f, 0f),
                 new Vector3f(-30f, 0.5f, 0f),
@@ -127,15 +129,20 @@ public class Sphere extends Circle3D{
         for(int i = 0; i < _pointLightPositions.length;i++){
             uniformsMap.setUniform("pointLights["+ i +"].position", _pointLightPositions[i]);
 
-            if(i > 2){
-                uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.5f,0.3f,0f));
-                uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.01f,0.01f,0.01f));
-                uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0.0000000001f, 1f, 0.00001f));
+            if(i == 0){
+                uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(8f,8f,4f));
+                uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
+                uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(50f,50f,50f));
             }
-            else{
+            else if(i > 0 && i < 5){
                 uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(10f,10f,5f));
                 uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
                 uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(500f,500f,500f));
+            }
+            else{
+                uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.5f,0.3f,0f));
+                uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.01f,0.01f,0.01f));
+                uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0.0000000001f, 1f, 0.00001f));
             }
 
             uniformsMap.setUniform("pointLights["+ i +"].constant", (1f));
