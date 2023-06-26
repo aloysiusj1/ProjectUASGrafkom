@@ -615,9 +615,7 @@ public class DummyTest {
             float z = (float)(pos.z + 110f*Math.cos(Math.toRadians(i)));
             tpsPos.add(new Vector3f(x, pos.y+13f, z));
         }
-        camera.setPosition(-tpsPos.get((int)rotation).x,-tpsPos.get((int)rotation).y,-tpsPos.get((int)rotation).z);
-        camera.setRotation(0, (float)Math.toRadians(180f));
-        camera.setPosition(tpsPos.get((int)rotation).x,tpsPos.get((int)rotation).y,tpsPos.get((int)rotation).z);
+        camera.setPosition(tpsPos.get((int)rotation).x,tpsPos.get((int)rotation).y, tpsPos.get((int)rotation).z);
     }
 
     public void fpsMode() {
@@ -897,7 +895,7 @@ public class DummyTest {
                 fpsMode1();
             }
         }
-        // TPS Camera robotYoel
+        // TPS Camera wall e
         if (window.isKeyPressed(GLFW_KEY_F)){
             importX.get(6).translateObject(-0.1f, 0.0f, 0.0f);
             if(tpp){
